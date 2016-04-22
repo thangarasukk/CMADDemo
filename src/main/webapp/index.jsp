@@ -43,12 +43,12 @@
 	</div>
 
 	
-	<h2>User data</h2>
+	<h2><u>User data</u></h2>
 	<table id="Userdata"  border="1">
 		<tr><td>User_id</td><td>Name</td><td>password</td></tr>
 	</table>
 
-	<br><h2>Blog data</h2>
+	<br><h2><u>Blog data</u></h2>
 	<table id="Blogdata" border="1">
 		<tr><td>Blog_id</td><td>User_id</td><td>title</td><td>data</td></tr>
 	</table>

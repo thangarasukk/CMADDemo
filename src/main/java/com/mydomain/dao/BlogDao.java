@@ -56,4 +56,17 @@ public class BlogDao {
 			HibernateUtil.closeSession();
 		}
 	}
+	
+	public boolean deleteBlog(Integer id) {
+		Session ses = HibernateUtil.currentSession();
+		try {
+			Transaction tx = ses.beginTransaction();
+			Blog blog = (Blog) ses.load(Blog.class, id);
+			ses.delete(blog);
+			tx.commit();
+			return true;
+		} finally {
+			HibernateUtil.closeSession();
+		}
+	}
 }

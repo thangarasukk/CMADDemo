@@ -57,52 +57,11 @@ public class UserBlogs {
 		blogDao.updateBlog(blog);
 	}
 	
-//	@POST
-//	@Consumes(MediaType.APPLICATION_JSON)
-//	//public void createUser(@FormParam("name") String name,@FormParam("age") Integer age,@FormParam("emailId") String emailId){
-//	public void createUser(User u){
-//		
-//		Session ses = HibernateUtil.currentSession();
-//		try {
-//			Transaction tx = ses.beginTransaction();
-//			ses.save(u);
-//			tx.commit();
-//		}finally{
-//			HibernateUtil.closeSession();
-//		}
-//	}
-//	
-//	@PUT
-//	@Consumes(MediaType.APPLICATION_JSON)
-//	//@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-//	//public void updateUser(@FormParam("id") Integer id, @FormParam("name") String name,@FormParam("age") Integer age,@FormParam("emailId") String emailId){
-//	public void updateUser(User u){
-//		
-//		Session ses = HibernateUtil.currentSession();
-//		try {
-//			Transaction tx = ses.beginTransaction();
-//			ses.update(u);
-//			tx.commit();
-//		}finally{
-//			HibernateUtil.closeSession();
-//		}
-//	}
-//	
-//	@DELETE
-//	@Path("/{param}")
-//	@Produces({MediaType.APPLICATION_JSON})
-//	public boolean deleteUser(@PathParam("param") Integer id) {
-//		System.out.println("Deleting user: "+id);
-//		Session ses = HibernateUtil.currentSession();
-//		try {
-//			Transaction tx = ses.beginTransaction();
-//			User u = (User) ses.load(User.class, id);
-//			ses.delete(u);
-//			tx.commit();
-//			return true;
-//		} finally {
-//			HibernateUtil.closeSession();
-//		}
-//	}
+	@DELETE
+	@Path("/{param}")
+	@Produces({MediaType.APPLICATION_JSON})
+	public boolean deleteBlog(@PathParam("param") Integer id) {
+		return blogDao.deleteBlog(id);
+	}
 	
 }

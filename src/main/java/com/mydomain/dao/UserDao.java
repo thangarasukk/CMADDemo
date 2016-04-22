@@ -72,5 +72,4 @@ public class UserDao {
 			HibernateUtil.closeSession();
 		}
 	}
-		
 }

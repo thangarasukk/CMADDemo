@@ -40,6 +40,7 @@
 			<tr><td>Blog_id</td><td>User_id</td><td>title</td><td>data</td></tr>
 		</table>
 	</div>
+
 	
 	<h2>User data</h2>
 	<table id="Userdata"  border="1">

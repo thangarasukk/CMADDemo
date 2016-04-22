@@ -14,7 +14,9 @@ public class UserDao {
 
 	public User getUser(Integer id) {
 		Session ses = HibernateUtil.currentSession();
+		System.out.println("UserDao.getUser()");
 		try {
+			System.out.println("UserDao.getUser() before crit");
 			Criteria crit =  ses.createCriteria(User.class);
 			crit.add(Restrictions.idEq(id));
 			User u = (User)crit.uniqueResult();
@@ -27,8 +29,11 @@ public class UserDao {
 
 	public List<User> getUsers() {
 		Session ses = HibernateUtil.currentSession();
+		System.out.println("UserDao.getUsers() ses = " + ses);
 		try {
-			return ses.createCriteria(User.class).list();
+			List<User> list = ses.createCriteria(User.class).list();
+			System.out.println("UserDao.getUsers() list = " + list);
+			return list;
 		} finally {
 			HibernateUtil.closeSession();
 		}

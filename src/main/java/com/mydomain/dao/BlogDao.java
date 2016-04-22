@@ -4,26 +4,26 @@ import java.util.List;
 
 import org.hibernate.Criteria;
 import org.hibernate.Session;
+import org.hibernate.Transaction;
 import org.hibernate.criterion.Restrictions;
 
 import com.mydomain.model.Blog;
+import com.mydomain.model.User;
 import com.mydomain.service.HibernateUtil;
 
 public class BlogDao {
 
-
-//	public Blog getBlog(Integer id) {
-//		Session ses = HibernateUtil.currentSession();
-//		try {
-//			Criteria crit =  ses.createCriteria(User.class);
-//			crit.add(Restrictions.idEq(id));
-//			User u = (User)crit.uniqueResult();
-//			return u;
-//		} finally {
-//			HibernateUtil.closeSession();
-//		}
-//	}
-	
+	public Blog getBlog(Integer id) {
+		Session ses = HibernateUtil.currentSession();
+		try {
+			Criteria crit =  ses.createCriteria(Blog.class);
+			crit.add(Restrictions.idEq(id));
+			Blog blog = (Blog)crit.uniqueResult();
+			return blog;
+		} finally {
+			HibernateUtil.closeSession();
+		}
+	}
 
 	public List<Blog> getBlogs() {
 		Session ses = HibernateUtil.currentSession();
@@ -34,4 +34,26 @@ public class BlogDao {
 		}
 	}
 	
+	public void createBlog(Blog blog){
+		Session ses = HibernateUtil.currentSession();
+		try {
+			Transaction tx = ses.beginTransaction();
+			ses.save(blog);
+			tx.commit();
+		}finally{
+			HibernateUtil.closeSession();
+		}
+	}
+	
+	public void updateBlog(Blog blog){
+		
+		Session ses = HibernateUtil.currentSession();
+		try {
+			Transaction tx = ses.beginTransaction();
+			ses.update(blog);
+			tx.commit();
+		}finally{
+			HibernateUtil.closeSession();
+		}
+	}
 }

@@ -46,50 +46,24 @@ public class UserService {
 	
 	@POST
 	@Consumes(MediaType.APPLICATION_JSON)
-	//public void createUser(@FormParam("name") String name,@FormParam("age") Integer age,@FormParam("emailId") String emailId){
+	//public void createUser(@FormParam("username") String username,@FormParam("password") String password){
 	public void createUser(User u){
-		
-		Session ses = HibernateUtil.currentSession();
-		try {
-			Transaction tx = ses.beginTransaction();
-			ses.save(u);
-			tx.commit();
-		}finally{
-			HibernateUtil.closeSession();
-		}
+		userDao.createUser(u);
 	}
 	
 	@PUT
 	@Consumes(MediaType.APPLICATION_JSON)
 	//@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-	//public void updateUser(@FormParam("id") Integer id, @FormParam("name") String name,@FormParam("age") Integer age,@FormParam("emailId") String emailId){
+	//public void updateUser(@FormParam("username") String username,@FormParam("password") String password){
 	public void updateUser(User u){
-		
-		Session ses = HibernateUtil.currentSession();
-		try {
-			Transaction tx = ses.beginTransaction();
-			ses.update(u);
-			tx.commit();
-		}finally{
-			HibernateUtil.closeSession();
-		}
+		userDao.updateUser(u);
 	}
 	
 	@DELETE
 	@Path("/{param}")
 	@Produces({MediaType.APPLICATION_JSON})
 	public boolean deleteUser(@PathParam("param") Integer id) {
-		System.out.println("Deleting user: "+id);
-		Session ses = HibernateUtil.currentSession();
-		try {
-			Transaction tx = ses.beginTransaction();
-			User u = (User) ses.load(User.class, id);
-			ses.delete(u);
-			tx.commit();
-			return true;
-		} finally {
-			HibernateUtil.closeSession();
-		}
+		return userDao.deleteUser(id);
 	}
 	
 }

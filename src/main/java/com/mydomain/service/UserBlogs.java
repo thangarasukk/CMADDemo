@@ -29,12 +29,12 @@ public class UserBlogs {
 		this.blogDao = blogDao;
 	}
 	
-//	@GET
-//	@Path("/{param}")
-//	@Produces({MediaType.APPLICATION_JSON})
-//	public User getUser(@PathParam("param") Integer id) {
-//		return userDao.getUser(id);
-//	}
+	@GET
+	@Path("/{param}")
+	@Produces({MediaType.APPLICATION_JSON})
+	public Blog getBlog(@PathParam("param") Integer id) {
+		return blogDao.getBlog(id);
+	}
 	
 	@GET
 	@Produces({MediaType.APPLICATION_JSON})
@@ -42,6 +42,20 @@ public class UserBlogs {
 		return blogDao.getBlogs();
 	}
 	
+	@POST
+	@Consumes(MediaType.APPLICATION_JSON)
+	//public void createBlog(@FormParam("user_id") Integer user_id,@FormParam("title") String title,@FormParam("data") String data){
+	public void createBlog(Blog blog){
+		blogDao.createBlog(blog);
+	}
+	
+	@PUT
+	@Consumes(MediaType.APPLICATION_JSON)
+	//@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+	//public void updateBlog(@FormParam("blog_id") Integer blog_id,@FormParam("user_id") Integer user_id,@FormParam("title") String title,@FormParam("data") String data){
+	public void updateBlog(Blog blog){
+		blogDao.updateBlog(blog);
+	}
 	
 //	@POST
 //	@Consumes(MediaType.APPLICATION_JSON)

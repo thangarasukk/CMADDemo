@@ -4,10 +4,6 @@ public class User {
 
 	private Integer user_id;
 	private String username ="";
-	@Override
-	public String toString() {
-		return "\nUser [user_id=" + user_id + ", username=" + username + ", password=" + password + "]\n";
-	}
 	private String password="";
 
 	public Integer getUser_id() {
@@ -29,4 +25,8 @@ public class User {
 		this.password = password;
 	}
 	
+	@Override
+	public String toString() {
+		return "\nUser [user_id=" + user_id + ", username=" + username + ", password=" + password + "]\n";
+	}
 }

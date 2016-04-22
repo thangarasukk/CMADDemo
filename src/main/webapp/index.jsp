@@ -14,6 +14,7 @@
 			}
 		});
 
+	
 	$.get("rest/blog", function(data){
 			var rowTemplate2 = $("#blogtemplates table").html();
 			console.log(rowTemplate2);

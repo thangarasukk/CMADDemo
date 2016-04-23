@@ -44,7 +44,7 @@ public class UserBlogs {
 	
 	@POST
 	@Consumes(MediaType.APPLICATION_JSON)
-	//public void createBlog(@FormParam("user_id") Integer user_id,@FormParam("title") String title,@FormParam("data") String data){
+	//public void createBlog(@FormParam("userId") Integer userId,@FormParam("title") String title,@FormParam("data") String data){
 	public void createBlog(Blog blog){
 		blogDao.createBlog(blog);
 	}
@@ -52,7 +52,7 @@ public class UserBlogs {
 	@PUT
 	@Consumes(MediaType.APPLICATION_JSON)
 	//@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-	//public void updateBlog(@FormParam("blog_id") Integer blog_id,@FormParam("user_id") Integer user_id,@FormParam("title") String title,@FormParam("data") String data){
+	//public void updateBlog(@FormParam("blogId") Integer blogId,@FormParam("userId") Integer userId,@FormParam("title") String title,@FormParam("data") String data){
 	public void updateBlog(Blog blog){
 		blogDao.updateBlog(blog);
 	}

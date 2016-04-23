@@ -2,15 +2,16 @@ package com.mydomain.model;
 
 public class User {
 
-	private Integer user_id;
+	private Integer userId;
 	private String username ="";
 	private String password="";
+	private String emailId="";
 
-	public Integer getUser_id() {
-		return user_id;
+	public Integer getUserId() {
+		return userId;
 	}
-	public void setUser_id(Integer user_id) {
-		this.user_id = user_id;
+	public void setUserId(Integer userId) {
+		this.userId = userId;
 	}
 	public String getUsername() {
 		return username;
@@ -24,9 +25,11 @@ public class User {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	
-	@Override
-	public String toString() {
-		return "\nUser [user_id=" + user_id + ", username=" + username + ", password=" + password + "]\n";
+	public String getEmailId() {
+		return emailId;
 	}
+	public void setEmailId(String emailId) {
+		this.emailId = emailId;
+	}
+
 }

@@ -4,23 +4,23 @@ import java.util.Date;
 
 public class Blog {
 
-	private Integer blog_id;
-	private Integer user_id;
+	private Integer blogId;
+	private Integer userId;
 	private String title="";
 	private String data="";
-//	private Date posted_date="";
-	
-	public Integer getBlog_id() {
-		return blog_id;
+	private Date postedDate= new Date();
+
+	public Integer getBlogId() {
+		return blogId;
 	}
-	public void setBlog_id(Integer blog_id) {
-		this.blog_id = blog_id;
+	public void setBlogId(Integer blogId) {
+		this.blogId = blogId;
 	}
-	public Integer getUser_id() {
-		return user_id;
+	public Integer getUserId() {
+		return userId;
 	}
-	public void setUser_id(Integer user_id) {
-		this.user_id = user_id;
+	public void setUserId(Integer userId) {
+		this.userId = userId;
 	}
 	public String getTitle() {
 		return title;
@@ -35,5 +35,11 @@ public class Blog {
 		this.data = data;
 	}
 
+	public Date getPostedDate() {
+		return postedDate;
+	}
+	public void setPostedDate(Date postedDate) {
+		this.postedDate = postedDate;
+	}
 	
 }

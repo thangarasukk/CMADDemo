@@ -3,11 +3,11 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
 	<class name="com.mydomain.model.Blog" table="blogs" schema="cmad_blog" >
-		<id name="blog_id" type="int">
+		<id name="blogId" type="int">
 			<column name="blog_id" />
 			<generator class="native" />
 		</id>
-		<property name="user_id" type="int">
+		<property name="userId" type="int">
 			<column name="user_id" />
 		</property>
 		<property name="title" type="string">
@@ -15,6 +15,9 @@
 		</property>
 		<property name="data" type="string">
 			<column name="data" length="30" />
+		</property>
+		<property name="postedDate" type="timestamp">
+			<column name="POSTED_DATE" length="30" />
 		</property>
 	</class>
 </hibernate-mapping>

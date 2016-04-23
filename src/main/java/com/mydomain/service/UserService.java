@@ -42,10 +42,9 @@ public class UserService {
 		return userDao.getUsers();
 	}
 	
-	
 	@POST
 	@Consumes(MediaType.APPLICATION_JSON)
-	//public void createUser(@FormParam("username") String username,@FormParam("password") String password){
+	//public void createUser(@FormParam("username") String username,@FormParam("password") String password,@FormParam("emailId") String emailId){
 	public void createUser(User u){
 		userDao.createUser(u);
 	}

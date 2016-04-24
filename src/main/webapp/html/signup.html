@@ -30,21 +30,24 @@
         <script src = "../js/vendor/jquery-2.1.3.js"> </script>
 
         <script>
-            function submit_parent_and_close()
-            {
-                console.log("submit_parent_and_close is called ");
-                var data = JSON.stringify({ userId: 2, title: "title", data: "content"});
-                    //alert( data);            
+            function submit_user_data() {
+                var user_data = document.getElementById("user_data_form");
+                var data = JSON.stringify(
+                        { username: user_data.elements[1].value, 
+                          emailId: user_data.elements[2].value,
+                          password: user_data.elements[3].value});
+                    /* alert( data); */
                     $.ajax({
                         type : "POST",
-                        url : "http://localhost:8080/CMADDemo/rest/blog",
+                        url : "http://localhost:8080/CMADDemo/rest/user",
                         dataType :"json",
                         contentType: "application/json",
                         data : data,
-                        success : function(result) { console.log("submit_parent_and_close success "); /* alert(result.success); */ },
-                        error:function(data){ console.log("Form Submission Failed" +data); /* alert("post failed"); */}
+                        success : function(result) { console.log("submit_parent_and_close success ");  /* alert(result.success); */ },
+                        error:function(data){ console.log("Form Submission Failed" +data);  /* alert("post failed"); */ }
                     });
             }
+        
         </script>
     </head>
     <body>
@@ -72,7 +75,8 @@
                   </form>
                   <ul class="nav navbar-nav">
                       <li><a href="../index.html">Home</a></li>
-                      <li class="active"><a href="html/signup.html">Singup</a></li>
+                      <li class="active"><a>Singup</a></li>
+                      <li><a href="addpost.html">NewBlog</a></li>
                       <!-- <li><a href="html/about.html">About</a></li> -->
                   </ul>
               </nav>
@@ -87,7 +91,7 @@
                   <h3 class="panel-title">Please sign in</h3>
                 </div>
                 <div class="panel-body">
-                  <form accept-charset="UTF-8" role="form">
+                  <form accept-charset="UTF-8" id="user_data_form" role="form">
                     <fieldset>
                       <div class="form-group">
                         <input class="form-control" placeholder="Username" name="text" type="text">
@@ -98,12 +102,7 @@
                       <div class="form-group">
                         <input class="form-control" placeholder="Password" name="password" type="password" value="">
                       </div>
-                      <div class="checkbox">
-                        <label>
-                          <input name="remember" type="checkbox" value="Remember Me"> Remember Me
-                        </label>
-                      </div>
-                      <input class="btn btn-lg btn-success btn-block" type="submit" onclick="submit_parent_and_close();" value="Signup">
+                      <input class="btn btn-lg btn-success btn-block" type="submit" onclick="submit_user_data();" value="Signup">
                     </fieldset>
                     </form>
                 </div>

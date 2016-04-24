@@ -41,5 +41,10 @@ public class Blog {
 	public void setPostedDate(Date postedDate) {
 		this.postedDate = postedDate;
 	}
+	@Override
+	public String toString() {
+		return "Blog [blogId=" + blogId + ", userId=" + userId + ", title=" + title + ", data=" + data + ", postedDate="
+				+ postedDate + "]";
+	}
 	
 }

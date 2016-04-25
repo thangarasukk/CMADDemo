@@ -36,15 +36,15 @@
                         { username: user_data.elements[1].value, 
                           emailId: user_data.elements[2].value,
                           password: user_data.elements[3].value});
-                    alert( data);            
+                    /* alert( data); */            
                     $.ajax({
                         type : "POST",
                         url : "http://localhost:8080/CMADDemo/rest/blog",
                         dataType :"json",
                         contentType: "application/json",
                         data : data,
-                        success : function(result) { console.log("submit_parent_and_close success ");  alert(result.success);  },
-                        error:function(data){ console.log("Form Submission Failed" +data);  alert("post failed"); }
+                        success : function(result) { console.log("submit_parent_and_close success "); /* alert(result.success); */ },
+                        error:function(data){ console.log("Form Submission Failed" +data); /* alert("post failed"); */}
                     });
             }
         
@@ -100,7 +100,7 @@
                         <input class="form-control" placeholder="Post Title" name="email" type="text">
                       </div>
                       <div class="form-group">
-                        <input class="form-control" placeholder="Content" name="password" type="password" value="">
+                        <input class="form-control" placeholder="Content" name="Content" type="text" value="">
                       </div>
                       <input class="btn btn-lg btn-success btn-block" type="submit" onclick="submit_user_data();" value="AddBlog">
                     </fieldset>

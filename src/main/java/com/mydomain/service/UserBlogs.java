@@ -46,7 +46,6 @@ public class UserBlogs {
 	@Consumes(MediaType.APPLICATION_JSON)
 	//public void createBlog(@FormParam("userId") Integer userId,@FormParam("title") String title,@FormParam("data") String data){
 	public void createBlog(Blog blog){
-		System.out.println("UserBlogs.createBlog() blog = " + blog);
 		blogDao.createBlog(blog);
 	}
 	

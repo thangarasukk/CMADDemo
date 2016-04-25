@@ -36,7 +36,7 @@
                         { userId: user_data.elements[1].value, 
                           title: user_data.elements[2].value,
                           data: user_data.elements[3].value});
-                    /* alert( data); */            
+                     alert( data);     
                     $.ajax({
                         type : "POST",
                         url : "rest/blog",
@@ -102,7 +102,7 @@
                       <div class="form-group">
                         <input class="form-control" placeholder="Content" name="Content" type="text" value="">
                       </div>
-                      <input class="btn btn-lg btn-success btn-block" type="submit" onclick="submit_user_data();" value="AddBlog">
+                      <input class="btn btn-lg btn-success btn-block" onclick="submit_user_data();" value="AddBlog">
                     </fieldset>
                     </form>
                 </div>

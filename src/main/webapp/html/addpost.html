@@ -33,9 +33,9 @@
             function submit_user_data() {
                 var user_data = document.getElementById("user_data_form");
                 var data = JSON.stringify(
-                        { username: user_data.elements[1].value, 
-                          emailId: user_data.elements[2].value,
-                          password: user_data.elements[3].value});
+                        { userId: user_data.elements[1].value, 
+                          title: user_data.elements[2].value,
+                          data: user_data.elements[3].value});
                     /* alert( data); */            
                     $.ajax({
                         type : "POST",
